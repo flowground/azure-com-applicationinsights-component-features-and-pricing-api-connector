@@ -1,0 +1,88 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "description": "An Azure resource.",
+                    "properties": {
+                        "id": {
+                            "description": "Azure resource Id.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Azure resource name.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "type": {
+                            "description": "Azure resource type.",
+                            "readOnly": true,
+                            "type": "string"
+                        }
+                    },
+                    "x-ms-azure-resource": true,
+                    "type": "object"
+                }
+            ],
+            "description": "An Application Insights component pricing plan",
+            "properties": {
+                "properties": {
+                    "description": "The properties of the suppression.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "cap": {
+                            "description": "Daily data volume cap in GB.",
+                            "type": "number"
+                        },
+                        "maxHistoryCap": {
+                            "description": "Maximum daily data volume cap that the user can set for this component.",
+                            "readOnly": true,
+                            "type": "number"
+                        },
+                        "planType": {
+                            "description": "Pricing Plan Type Name.",
+                            "type": "string"
+                        },
+                        "resetHour": {
+                            "description": "Daily data volume cap UTC reset hour.",
+                            "readOnly": true,
+                            "type": "integer"
+                        },
+                        "stopSendNotificationWhenHitCap": {
+                            "description": "Do not send a notification email when the daily data volume cap is met.",
+                            "type": "boolean"
+                        },
+                        "stopSendNotificationWhenHitThreshold": {
+                            "description": "Reserved, not used for now.",
+                            "type": "boolean"
+                        },
+                        "warningThreshold": {
+                            "description": "Reserved, not used for now.",
+                            "type": "integer"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
